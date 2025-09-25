@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  background: #0f0f0f;
+  color: white;
+}
