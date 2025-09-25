@@ -1,9 +1,13 @@
+import { AiChat } from "../icons/AiChat";
 import LogOutIcon from "../icons/LogOutIcon";
+import AiButton from "./AIButton";
+import Button from "./button";
+import SidebarList from "./SidebarList";
 
 function Sidebar() {
   return (
     <div className="w-[100%] border-r-1 border-[#262626] h-[100vh] flex flex-col">
-      <div className="logoContainer flex h-[55px]  items-center pt-1 pl-4">
+      <div className="logoContainer flex h-[55px]  items-center pt-4 pl-4">
         <img
           src="/src/assets/vectorthink-logo.png"
           className="h-[45px]"
@@ -11,6 +15,14 @@ function Sidebar() {
         />
         <h2 className="text-xl">Vector Think</h2>
       </div>
+      {/* Ai Button */}
+      <div>
+        <AiButton text="Ai Chat" Icon={<AiChat />} />
+      </div>
+      {/* Sidebar List */}
+      <SidebarList />
+      {/* Sidebar End */}
+
       <div className="w-[100%] border-[#262626] border-t-1 mt-auto">
         <div className="w-[90%] mx-auto flex items-center justify-between  py-3">
           <div className="flex items-center gap-5">
