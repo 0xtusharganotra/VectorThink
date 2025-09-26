@@ -4,11 +4,13 @@ interface ButtonProps {
   variant: "primary" | "secondary";
   text: string;
   startIcon: ReactElement;
+  setcreateopen: () => void;
 }
 const Button = (props: ButtonProps) => {
   return (
     <div>
       <button
+        onClick={() => props.setcreateopen(true)}
         className={
           props.variant === "primary"
             ? "bg-[#0f0f0f] border-[#525252] border-1 flex gap-1.5 justify-center items-center text-white px-3 py-1 rounded-md cursor-pointer flex items-center justify-center"

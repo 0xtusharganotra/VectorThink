@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { PlusIcon } from "../icons/PlusIcon";
 import { ShareIcon } from "../icons/ShareIcon";
 import Button from "./button";
 
-const Header = () => {
+const Header = ({ setcreateopen }: { setcreateopen: Boolean }) => {
   return (
     <div
       className="h-[60px] bg-[#0f0f0f] w-[100%] px-10 flex justify-between items-center border-b-1 m-auto border-[#262626]"
@@ -15,6 +16,7 @@ const Header = () => {
           variant="secondary"
           text="Add Content"
           startIcon={<ShareIcon />}
+          setcreateopen={setcreateopen}
         />
       </div>
     </div>
