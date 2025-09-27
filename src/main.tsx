@@ -3,8 +3,8 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import App from "./App.tsx";
-import { SignIn } from "./components/SignIn.tsx";
-import { SignUp } from "./components/Signup.tsx";
+import { SignIn } from "./pages/SignIn.tsx";
+import { SignUp } from "./pages/Signup.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

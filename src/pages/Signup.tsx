@@ -42,7 +42,7 @@ export function SignUp() {
                   <span className="ml-3">Sign Up</span>
                 </button>
                 <p className="mt-6 text-xs text-gray-600 text-center">
-                  Existing User - <Link to="/signin">SignIn ↗</Link>
+                  Existing User - <Link to="/">SignIn ↗</Link>
                 </p>
               </div>
             </div>

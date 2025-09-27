@@ -1,16 +1,11 @@
 import Card from "../components/Card";
 import Header from "../components/header";
 import CreateContentDialogue from "../components/createContentDialogue";
-import { useState } from "react";
 function Dashboard() {
-  const [createopen, setcreateopen] = useState(false);
   return (
     <div className="w-[80%]">
-      <CreateContentDialogue
-        createopen={createopen}
-        setcreateopen={setcreateopen}
-      />
-      <Header setcreateopen={setcreateopen} />
+      <CreateContentDialogue />
+      <Header />
       <div className="flex flex-wrap pl-4 justify-start w-[100%] h-[calc(100vh-60px)] pt-8 pb-4 overflow-y-scroll overflow-x-hidden ">
         <Card
           title="Titter link"

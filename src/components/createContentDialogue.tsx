@@ -1,12 +1,10 @@
+import { useContext } from "react";
 import { CloseIcon } from "../icons/CloseIcon";
+import { MyContext } from "../App";
 
-function CreateContentDialogue({
-  createopen,
-  setcreateopen,
-}: {
-  createopen: Boolean;
-  setcreateopen: Boolean;
-}) {
+function CreateContentDialogue() {
+  const { createopen, setcreateopen } = useContext(MyContext);
+
   return (
     <>
       {createopen === true && (
