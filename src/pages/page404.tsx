@@ -8,7 +8,7 @@ const Page404 = () => {
           <div className="flex flex-wrap pl-4 justify-start w-[100%] h-[100vh] pt-8 pb-4 ">
             <div className="w-[100%] h-[100%] flex justify-center items-center">
               <img
-                src="/src/assets/vectorthink-logo.png"
+                src="/assets/vectorthink-logo.png"
                 className="w-[20vw] h-[auto]"
                 alt=""
               />

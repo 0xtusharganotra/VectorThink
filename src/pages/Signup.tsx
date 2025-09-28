@@ -92,7 +92,7 @@ export function SignUp() {
         </div>
         <div className="flex-1 bg-[#100c0c] text-center hidden lg:flex lg:justify-center items-center">
           <div className="">
-            <img src="/src/assets/vectorthinklogo.png" alt="" />
+            <img src="/assets/vectorthinklogo.png" alt="" />
           </div>
         </div>
       </div>
