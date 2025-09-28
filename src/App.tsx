@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/dashboard";
-import { createContext, useState, useEffect, use } from "react";
+import React, { createContext, useState, useEffect, use } from "react";
 import { BACKEND_URL } from "./config";
 import axios from "axios";
 
@@ -14,6 +14,8 @@ interface MyContextType {
   setContentarr: React.Dispatch<React.SetStateAction<ContentType[]>>;
   filtertype: string;
   setfiltertype: React.Dispatch<React.SetStateAction<string>>;
+  shareopen: boolean;
+  setshareopen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface ContentType {
@@ -35,10 +37,13 @@ export const MyContext = createContext<MyContextType>({
   setContentarr: () => {},
   filtertype: "all",
   setfiltertype: () => {},
+  shareopen: false,
+  setshareopen: () => {},
 });
 
 function App() {
   const [createopen, setcreateopen] = useState(false);
+  const [shareopen, setshareopen] = useState(false);
   const navigate = useNavigate();
   const [username, setusername] = useState("");
   const [email, setemail] = useState("");
@@ -79,6 +84,8 @@ function App() {
     setContentarr,
     filtertype,
     setfiltertype,
+    shareopen,
+    setshareopen,
   };
   return (
     <MyContext.Provider value={values}>

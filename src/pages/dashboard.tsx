@@ -3,6 +3,7 @@ import Header from "../components/header";
 import CreateContentDialogue from "../components/createContentDialogue";
 import { useContext } from "react";
 import { MyContext } from "../App";
+import ShareableLinks from "../components/ShareableLinks";
 
 function Dashboard() {
   const { contentarr, setContentarr, filtertype } = useContext(MyContext);
@@ -10,6 +11,7 @@ function Dashboard() {
   return (
     <div className="w-[80%]">
       <CreateContentDialogue />
+      <ShareableLinks />
       <Header />
       <div className="flex flex-wrap pl-4 justify-start w-[100%] h-[calc(100vh-60px)] pt-8 pb-4 overflow-y-scroll overflow-x-hidden ">
         {contentarr.length < 1 ? (
