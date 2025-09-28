@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { CloseIcon } from "../icons/CloseIcon";
 import { MyContext } from "../App";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL } from "../App";
 import axios from "axios";
 
 const ShareableLinks = () => {

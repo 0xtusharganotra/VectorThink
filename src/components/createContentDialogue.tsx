@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { CloseIcon } from "../icons/CloseIcon";
 import { MyContext } from "../App";
 import axios from "axios";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL } from "../App";
 
 function CreateContentDialogue() {
   const { createopen, setcreateopen } = useContext(MyContext);

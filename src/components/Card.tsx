@@ -2,7 +2,7 @@ import { EditIcon } from "../icons/EditIcon";
 import { DeleteIcon } from "../icons/DeleteIcon";
 import { ImgIcon } from "../icons/ImgIcon";
 import { useState } from "react";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL } from "../App";
 import axios from "axios";
 import ShowContentDialogue from "./ShowContentDialogue";
 
@@ -29,7 +29,6 @@ const Card = ({
   createdAt,
   setContentarr,
 }: CardProps) => {
-  
   const [openShowcontent, setopenshowcontent] = useState(false);
 
   async function triggerdelete(ID: string) {

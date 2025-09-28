@@ -2,10 +2,11 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/dashboard";
 import { createContext, useState, useEffect } from "react";
-import { BACKEND_URL } from "./config";
 import axios from "axios";
 
 import type { ContentType, MyContextType } from "./types";
+
+export const BACKEND_URL = "http://localhost:3000";
 
 export const MyContext = createContext<MyContextType>({
   createopen: false,

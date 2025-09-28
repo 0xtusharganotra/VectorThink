@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL } from "../App";
 import { useNavigate } from "react-router-dom";
 
 export function SignIn() {
