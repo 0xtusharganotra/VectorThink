@@ -1,7 +1,7 @@
 import { AiChat } from "../icons/AiChat";
 import LogOutIcon from "../icons/LogOutIcon";
 import AiButton from "./AIButton";
-import Button from "./button";
+
 import SidebarList from "./SidebarList";
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../App";

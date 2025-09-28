@@ -4,15 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 
-interface ContentType {
-  _id: string;
-  title: string;
-  type: string;
-  description: string;
-  link: string;
-  visibility: string;
-  createdAt: Date;
-}
+import type { ContentType } from "../types";
 
 const ShareableContentPage = () => {
   const [contentarr, setContentarr] = useState<ContentType[]>([]);
@@ -57,6 +49,7 @@ const ShareableContentPage = () => {
               .filter((content) => content.visibility === "public")
               .map((content) => (
                 <Card
+                  id={content._id}
                   title={content.title}
                   description={content.description}
                   type={content.type}

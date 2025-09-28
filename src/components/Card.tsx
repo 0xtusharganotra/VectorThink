@@ -6,15 +6,7 @@ import { BACKEND_URL } from "../config";
 import axios from "axios";
 import ShowContentDialogue from "./ShowContentDialogue";
 
-interface ContentType {
-  _id: string;
-  title: string;
-  type: string;
-  description: string;
-  link: string;
-  visibility: string;
-  createdAt: Date | string;
-}
+import type { ContentType } from "../types";
 
 interface CardProps {
   title: string;
@@ -23,7 +15,7 @@ interface CardProps {
   type: string;
   description: string;
   view: string;
-  createdAt: Date;
+  createdAt: Date | string;
   setContentarr: React.Dispatch<React.SetStateAction<ContentType[]>>;
 }
 
@@ -37,7 +29,7 @@ const Card = ({
   createdAt,
   setContentarr,
 }: CardProps) => {
-  const [data, setdata] = useState(false);
+  
   const [openShowcontent, setopenshowcontent] = useState(false);
 
   async function triggerdelete(ID: string) {
