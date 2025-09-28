@@ -95,7 +95,11 @@ const Card = ({
         ) : (
           <>
             <div className=" line-clamp-2">
-              Write description for your content {description}
+              {description === "" ? (
+                <p>Write description for your content</p>
+              ) : (
+                description
+              )}
             </div>
             <div className="w-[100%] rounded-xl bg-[#e0e0e0] h-[60%] mt-3  flex justify-center items-center">
               {type === "video" ? (

@@ -14,7 +14,7 @@ const Header = () => {
       <div className="flex gap-3 ">
         <Button
           variant="primary"
-          text="Share Data"
+          text="Share Memory"
           startIcon={<PlusIcon />}
           onClickfn={() => setshareopen(true)}
         />

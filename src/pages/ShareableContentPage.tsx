@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 
@@ -13,11 +13,24 @@ interface ContentType {
   visibility: string;
   createdAt: Date;
 }
-const ShareableContentPage = ({ link }: { link: string }) => {
+
+const ShareableContentPage = () => {
   const [contentarr, setContentarr] = useState<ContentType[]>([]);
+  const { link } = useParams<{ link: string }>();
 
   useEffect(() => {
     localStorage.clear();
+    async function getContent() {
+      try {
+        const res = await axios.get(`${BACKEND_URL}/share/${link}`);
+        console.log(res.data.content);
+        setContentarr(res.data.content);
+      } catch (e: any) {
+        console.log(e);
+      }
+    }
+
+    getContent();
   }, []);
   return (
     <main className="bg-[#0f0f0f] w-[100vw] min-h-[100vh]  text-white h-[auto] ">
@@ -28,7 +41,7 @@ const ShareableContentPage = ({ link }: { link: string }) => {
             className="w-[40px] pr-1"
             alt=""
           />
-          Tushar's Sharable memory space
+          Sharable memory space
         </p>
         <p className="text-md hover:text-amber-200">
           <Link to="/">Create your own now</Link>

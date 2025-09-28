@@ -16,7 +16,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<Page404 />} />
-        <Route path="/share" element={<ShareableContentPage />} />
+        <Route path="/share/:link" element={<ShareableContentPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

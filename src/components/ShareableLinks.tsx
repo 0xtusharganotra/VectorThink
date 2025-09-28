@@ -8,29 +8,6 @@ const ShareableLinks = () => {
   const { shareopen, setshareopen } = useContext(MyContext);
   const [Glink, setGlink] = useState<string>("");
 
-  useEffect(() => {
-    async function getalllinks() {
-      const res = await axios.get(
-        `${BACKEND_URL}/v1/vector-think/sharable-link/all`,
-        {
-          headers: {
-            token: localStorage.getItem("token"),
-          },
-        }
-      );
-
-      const alllinks = res.data.links;
-      if (alllinks && alllinks.length > 0) {
-        setGlink(`http://localhost:5173/${alllinks[0].token}`); // adjust field name if it's `link`
-        console.log(alllinks[0].token);
-      } else {
-        console.log(res.data.message || "No sharable links found");
-      }
-    }
-
-    getalllinks();
-  }, []);
-
   async function generatelink() {
     try {
       const res = await axios.post(
