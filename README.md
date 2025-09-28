@@ -1,73 +1,96 @@
-# React + TypeScript + Vite
+# VectorThink Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for VectorThink, a web application that helps you organize and manage your content.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Content Organization:** Organize your content by type (e.g., notes, links, images).
+- **AI-Powered Assistant:** Query stored content with contextual AI using RAG + embeddings.(Not live yet)
+- **User Authentication:** Secure sign-in and sign-up functionality.
+- **Dashboard:** A central place to view and manage all your content.
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React:** A JavaScript library for building user interfaces.
+- **Vite:** A fast build tool for modern web development.
+- **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
+- **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
+- **React Router:** For handling routing in the application.
+- **Axios:** A promise-based HTTP client for the browser and Node.js.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js and npm (or yarn) installed on your machine.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/vectorthink-client.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd vectorthink-client
+   ```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+To start the development server, run:
+
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This will start the application on `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Building for Production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+To create a production build, run:
+
+```bash
+npm run build
 ```
+
+This will create a `dist` folder with the optimized and minified files for deployment.
+
+## Project Structure
+
+```
+.
+├── public/
+│   └── ... # Public assets
+├── src/
+│   ├── assets/
+│   │   └── ... # Images and other assets
+│   ├── components/
+│   │   └── ... # Reusable React components
+│   ├── icons/
+│   │   └── ... # SVG icons
+│   ├── pages/
+│   │   ├── AiChatBox.tsx
+│   │   ├── dashboard.tsx
+│   │   ├── SignIn.tsx
+│   │   └── Signup.tsx
+│   ├── App.tsx # Main application component
+│   ├── index.css # Global CSS styles
+│   └── main.tsx # Entry point of the application
+├── .gitignore
+├── index.html
+├── package.json
+├── README.md
+├── tsconfig.json
+└── vite.config.ts
+```
+
+## Available Scripts
+
+- `npm run dev`: Starts the development server.
+- `npm run build`: Builds the application for production.
+- `npm run lint`: Lints the code using ESLint.
+- `npm run preview`: Starts a local server to preview the production build.
