@@ -49,6 +49,7 @@ const ShareableContentPage = () => {
               .filter((content) => content.visibility === "public")
               .map((content) => (
                 <Card
+                  key={content._id}
                   id={content._id}
                   title={content.title}
                   description={content.description}
