@@ -6,7 +6,7 @@ import axios from "axios";
 
 import type { ContentType, MyContextType } from "./types";
 
-export const BACKEND_URL = "http://localhost:3000";
+export const BACKEND_URL = "https://vectorthink-server.onrender.com/";
 
 export const MyContext = createContext<MyContextType>({
   createopen: false,
