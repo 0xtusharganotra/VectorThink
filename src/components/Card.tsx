@@ -107,7 +107,7 @@ const Card = ({
               ) : type === "tweet" ? (
                 <a href={link}>
                   <img
-                    src="/src/assets/xbanner.png"
+                    src="/assets/xbanner.png"
                     className=" w-full h-full object-cover rounded-xl mt-4"
                     alt=""
                   />

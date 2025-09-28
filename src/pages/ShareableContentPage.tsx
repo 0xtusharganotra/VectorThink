@@ -29,7 +29,7 @@ const ShareableContentPage = () => {
       <div className="flex flex-col items-center w-[100%] pt-10">
         <p className="md:text-2xl text-lg flex items-center px-4">
           <img
-            src="/src/assets/vectorthink-logo.png"
+            src="/assets/vectorthink-logo.png"
             className="w-[40px] pr-1"
             alt=""
           />

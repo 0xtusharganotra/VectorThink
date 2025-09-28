@@ -19,7 +19,7 @@ function Sidebar() {
     <div className="w-[100%] border-r-1 border-[#262626] h-[100vh] flex flex-col">
       <div className="logoContainer flex h-[55px]  items-center pt-4 pl-4">
         <img
-          src="/src/assets/vectorthink-logo.png"
+          src="/assets/vectorthink-logo.png"
           className="h-[45px]"
           alt=""
         />
@@ -37,7 +37,7 @@ function Sidebar() {
         <div className="w-[90%] mx-auto flex items-center justify-between  py-3">
           <div className="flex items-center gap-5">
             <img
-              src="/src/assets/vectorthink-logo.png"
+              src="/assets/vectorthink-logo.png"
               className="w-[40px] shadow-sm outline-1 shadow-amber-50 rounded-[100%]"
               alt=""
             />
