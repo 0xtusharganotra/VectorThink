@@ -3,8 +3,18 @@ import LogOutIcon from "../icons/LogOutIcon";
 import AiButton from "./AIButton";
 import Button from "./button";
 import SidebarList from "./SidebarList";
+import { useNavigate } from "react-router-dom";
+import { MyContext } from "../App";
+import { useContext } from "react";
 
 function Sidebar() {
+  const navigate = useNavigate();
+  const { username, email } = useContext(MyContext);
+
+  function usersignout() {
+    localStorage.clear();
+    navigate("/");
+  }
   return (
     <div className="w-[100%] border-r-1 border-[#262626] h-[100vh] flex flex-col">
       <div className="logoContainer flex h-[55px]  items-center pt-4 pl-4">
@@ -32,13 +42,11 @@ function Sidebar() {
               alt=""
             />
             <div className="flex flex-col max-w-[130px]">
-              <p className="truncate">Tushar</p>
-              <p className="text-sm text-gray-400 truncate">
-                ganotra.vox@gmail.com
-              </p>
+              <p className="truncate">{username}</p>
+              <p className="text-sm text-gray-400 truncate">{email}</p>
             </div>
           </div>
-          <span className="cursor-pointer">
+          <span onClick={usersignout} className="cursor-pointer">
             <LogOutIcon />
           </span>
         </div>

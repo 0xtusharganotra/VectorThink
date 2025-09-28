@@ -15,7 +15,7 @@ const Header = () => {
         <Button variant="primary" text="Share Data" startIcon={<PlusIcon />} />
         <Button
           variant="secondary"
-          text="Add Content"
+          text="Add Memory"
           startIcon={<ShareIcon />}
           onClickfn={() => setcreateopen(true)}
         />

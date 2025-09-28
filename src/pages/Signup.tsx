@@ -1,6 +1,39 @@
+import { useState } from "react";
+import axios from "axios";
+import { BACKEND_URL } from "../config";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function SignUp() {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setemail] = useState("");
+  const navigate = useNavigate();
+  async function consolefn() {
+    console.log(userName);
+    console.log(password), console.log(email);
+
+    try {
+      const res = await axios.post(
+        `${BACKEND_URL}/api/v1/vector-think/signup`,
+        {
+          username: userName,
+          email,
+          password,
+        }
+      );
+
+      alert(res.data.message);
+      navigate("/");
+    } catch (error: any) {
+      console.error(error);
+      alert(
+        error.response?.data?.message ||
+          error.message ||
+          "An error occurred. Please try again."
+      );
+    }
+  }
   return (
     <div className="min-h-screen bg-[#0f0f0f] text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
@@ -15,18 +48,27 @@ export function SignUp() {
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="username"
                   placeholder="Username"
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
                 />
                 <input
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                   type="email"
                   placeholder="Email"
+                  value={email}
+                  onChange={(e) => setemail(e.target.value)}
                 />
                 <input
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                   type="password"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
-                <button className="mt-5 tracking-wide font-semibold bg-gray-900 text-gray-100 w-full py-4 rounded-lg cursor-pointer hover:bg-gray-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                <button
+                  onClick={consolefn}
+                  className="mt-5 tracking-wide font-semibold bg-gray-900 text-gray-100 w-full py-4 rounded-lg cursor-pointer hover:bg-gray-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                >
                   <svg
                     className="w-6 h-6 -ml-2"
                     fill="none"
