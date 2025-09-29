@@ -18,7 +18,10 @@ This is the frontend for VectorThink, a web application that helps you organize 
 - **React Router:** For handling routing in the application.
 - **Axios:** A promise-based HTTP client for the browser and Node.js.
 
-## Getting Started
+## Login Credentials
+
+Email - vectortest@gmail.com
+Password - Vector@123
 
 ### Prerequisites
 
