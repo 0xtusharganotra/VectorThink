@@ -12,7 +12,7 @@ function Dashboard() {
     <div className="w-[80%]">
       <CreateContentDialogue />
       <ShareableLinks />
-      <Header />
+      <Header maintext="All Data" />
       <div className="flex flex-wrap pl-4 justify-start w-[100%] h-[calc(100vh-60px)] pt-8 pb-4 overflow-y-scroll overflow-x-hidden ">
         {contentarr.length < 1 ? (
           <p>Please add content...</p>

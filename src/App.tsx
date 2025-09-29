@@ -5,6 +5,8 @@ import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
 import type { ContentType, MyContextType } from "./types";
+import AiChatBox from "./pages/AiChatBox";
+import AiSidebar from "./components/AiSidebar";
 
 export const BACKEND_URL = "https://vectorthink-server.onrender.com";
 
@@ -19,6 +21,8 @@ export const MyContext = createContext<MyContextType>({
   setfiltertype: () => {},
   shareopen: false,
   setshareopen: () => {},
+  bringaipage: false,
+  setbringaipage: () => {},
 });
 
 function App() {
@@ -29,6 +33,7 @@ function App() {
   const [email, setemail] = useState("");
   const [filtertype, setfiltertype] = useState("all");
   const [contentarr, setContentarr] = useState<ContentType[]>([]);
+  const [bringaipage, setbringaipage] = useState(false);
 
   useEffect(() => {
     async function getdata() {
@@ -46,14 +51,14 @@ function App() {
     getdata();
   }, []);
 
-  useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      navigate("/");
-    } else {
-      setusername(localStorage.getItem("username") as string);
-      setemail(localStorage.getItem("email") as string);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!localStorage.getItem("token")) {
+  //     navigate("/");
+  //   } else {
+  //     setusername(localStorage.getItem("username") as string);
+  //     setemail(localStorage.getItem("email") as string);
+  //   }
+  // }, []);
 
   const values = {
     createopen,
@@ -66,14 +71,16 @@ function App() {
     setfiltertype,
     shareopen,
     setshareopen,
+    bringaipage,
+    setbringaipage,
   };
   return (
     <MyContext.Provider value={values}>
       <main className="main flex">
         <div className="w-[20%] text-white">
-          <Sidebar />
+          {bringaipage === false ? <Sidebar /> : <AiSidebar />}
         </div>
-        <Dashboard />
+        {bringaipage === false ? <Dashboard /> : <AiChatBox />}
       </main>
     </MyContext.Provider>
   );

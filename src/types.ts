@@ -19,4 +19,6 @@ export interface MyContextType {
   setfiltertype: React.Dispatch<React.SetStateAction<string>>;
   shareopen: boolean;
   setshareopen: React.Dispatch<React.SetStateAction<boolean>>;
+  bringaipage: boolean;
+  setbringaipage: React.Dispatch<React.SetStateAction<boolean>>;
 }
