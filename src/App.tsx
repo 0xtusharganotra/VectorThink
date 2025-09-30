@@ -51,14 +51,14 @@ function App() {
     getdata();
   }, []);
 
-  useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      navigate("/");
-    } else {
-      setusername(localStorage.getItem("username") as string);
-      setemail(localStorage.getItem("email") as string);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!localStorage.getItem("token")) {
+  //     navigate("/");
+  //   } else {
+  //     setusername(localStorage.getItem("username") as string);
+  //     setemail(localStorage.getItem("email") as string);
+  //   }
+  // }, []);
 
   const values = {
     createopen,

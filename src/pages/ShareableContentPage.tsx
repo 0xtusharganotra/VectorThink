@@ -8,6 +8,7 @@ import type { ContentType } from "../types";
 
 const ShareableContentPage = () => {
   const [contentarr, setContentarr] = useState<ContentType[]>([]);
+  const [username, setusername] = useState("");
   const { link } = useParams<{ link: string }>();
 
   useEffect(() => {
@@ -16,6 +17,7 @@ const ShareableContentPage = () => {
       try {
         const res = await axios.get(`${BACKEND_URL}/share/${link}`);
         console.log(res.data.content);
+        setusername(res.data.username);
         setContentarr(res.data.content);
       } catch (e: any) {
         console.log(e);
@@ -33,7 +35,7 @@ const ShareableContentPage = () => {
             className="w-[40px] pr-1"
             alt=""
           />
-          Sharable memory space
+          {username}'s Sharable memory space
         </p>
         <p className="text-md hover:text-amber-200">
           <Link to="/">Create your own now</Link>
