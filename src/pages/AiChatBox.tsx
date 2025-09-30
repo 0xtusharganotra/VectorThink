@@ -8,9 +8,6 @@ const AiChatBox = () => {
   const [usermessage, setusermessage] = useState("");
   const [chaton, setchaton] = useState(false);
   const [showmessage, setshowmessage] = useState("");
-  function sendAIalert() {
-    alert("Coming Soon...");
-  }
 
   function sendMessage() {
     setchaton(true);
