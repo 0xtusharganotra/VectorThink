@@ -30,13 +30,13 @@ const AiChatBox = () => {
             </p>
           </div>
         ) : (
-          <div className="p-4 ">
+          <div className="p-4 w-[95%] mx-auto">
             {showmessage !== "" && <UserMessageBox usermessage={showmessage} />}
           </div>
         )}
       </div>
       <div className="h-[70px] bg-[#0f0f0f] flex justify-center gap-1">
-        <div className="w-[75%] bg-[#343434] rounded-2xl h-[50px] flex justify-center items-center">
+        <div className="w-[80%] bg-[#343434] rounded-2xl h-[50px] flex justify-center items-center">
           <input
             type="text"
             placeholder="Ask Anything about your second brain..."
