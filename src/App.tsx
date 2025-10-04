@@ -33,7 +33,14 @@ function App() {
   const [email, setemail] = useState("");
   const [filtertype, setfiltertype] = useState("all");
   const [contentarr, setContentarr] = useState<ContentType[]>([]);
-  const [bringaipage, setbringaipage] = useState(false);
+  const [bringaipage, setbringaipage] = useState(() => {
+    const saved = localStorage.getItem("bringaipage");
+    return saved !== null ? JSON.parse(saved) : false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("bringaipage", JSON.stringify(bringaipage));
+  }, [bringaipage]);
 
   useEffect(() => {
     async function getdata() {
