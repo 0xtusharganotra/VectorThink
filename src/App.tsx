@@ -8,7 +8,7 @@ import type { ContentType, MyContextType } from "./types";
 import AiChatBox from "./pages/AiChatBox";
 import AiSidebar from "./components/AiSidebar";
 
-export const BACKEND_URL = "http://localhost:3000";
+export const BACKEND_URL = "https://vectorthink-server.onrender.com";
 
 export const MyContext = createContext<MyContextType>({
   createopen: false,
