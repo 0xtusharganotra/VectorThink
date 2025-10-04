@@ -43,7 +43,7 @@ function AiChatHistory() {
         <div className="flex-grow border-t border-gray-500"></div>
       </div>
       <div className=" w-[98%] mx-auto py-2 overflow-y-hidden h-[40vh] ">
-        {sessionarr.map((session, id) => (
+        {sessionarr.map((session) => (
           <div
             onClick={() => setLocalStorageSessionId(session._id)}
             className="pt-4 cursor-pointer border-xl hover:font-bold  "
