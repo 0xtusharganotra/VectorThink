@@ -1,19 +1,41 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { BACKEND_URL } from "../App";
 
 const UserMessageBox = ({ usermessage }: { usermessage: string }) => {
   const [aimessage, setaimessage] = useState("");
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setaimessage(
-        "Hi, how are you? Sorry for the inconvenience sir, Ai feature is not live yet"
-      );
-    }, 1000);
 
-    return () => {
-      clearTimeout(timer);
-      setaimessage("...");
-    }; // cleanup
+  useEffect(() => {
+    async function getAiresponse() {
+      setaimessage("");
+      try {
+        const res = await axios.post(
+          `${BACKEND_URL}/v1/ai/userquery`,
+          {
+            query: usermessage,
+          },
+          {
+            headers: {
+              token: localStorage.getItem("token"),
+            },
+          }
+        );
+
+        if (res.status !== 200) {
+          console.log(res.data.message);
+        } else {
+          setaimessage(res.data.reply);
+        }
+      } catch (e: any) {
+        console.error(e);
+        setaimessage(
+          "Sorry! Response Generation is taking longer than expected time because of server delay Please try again after sometime"
+        );
+      }
+    }
+    getAiresponse();
   }, [usermessage]);
+
   return (
     <div>
       <div className="w-[100%] h-auto flex justify-end px-6 py-4">
@@ -27,7 +49,7 @@ const UserMessageBox = ({ usermessage }: { usermessage: string }) => {
           alt=""
           className="w-[30px] h-[30px] rounded-full mr-2 border-1 border-amber-50"
         />
-        <p>{aimessage}</p>
+        {aimessage !== "" ? <p>{aimessage}</p> : <p>Gnerating response...</p>}
       </div>
     </div>
   );
