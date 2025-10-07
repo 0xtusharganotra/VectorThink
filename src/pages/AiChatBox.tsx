@@ -17,6 +17,7 @@ const AiChatBox = () => {
   const [chaton, setChatOn] = useState(false);
   const [loading, setLoading] = useState(false);
   const [hideinputbox, sethideinputbox] = useState(false);
+  const [querytype, setquerytype] = useState("normal");
 
   // Loading existing chat history
   useEffect(() => {
@@ -54,7 +55,7 @@ const AiChatBox = () => {
       // Get AI response
       const aiRes = await axios.post(
         `${BACKEND_URL}/v1/ai/userquery`,
-        { query },
+        { query, querytype },
         { headers: { token: localStorage.getItem("token") } }
       );
 
@@ -153,11 +154,25 @@ const AiChatBox = () => {
             <input
               type="text"
               placeholder="Ask anything about your second brain..."
-              className="text-white w-[94%] h-[80%] text-md outline-none placeholder-gray-300"
+              className="text-white w-[86%] h-[80%] text-md outline-none placeholder-gray-300"
               value={usermessage}
               onChange={(e) => setUserMessage(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && sendMessage()}
             />
+            <select
+              name="view"
+              className="bg-[#212121] h-[30px] text-sm px-2 ml-2 rounded-lg outline-none "
+              id="view"
+              value={querytype}
+              onChange={(e) => setquerytype(e.target.value)}
+            >
+              <option className="outline-none " value="normal">
+                Normal
+              </option>
+              <option className="outline-none" value="extended">
+                Extended
+              </option>
+            </select>
           </div>
 
           <div
